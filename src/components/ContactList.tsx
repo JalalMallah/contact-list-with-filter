@@ -29,7 +29,7 @@ const ContactList: React.FC<ContactListProps> = ({ contacts }) => {
     });
   };
 
-  const mappedContact = contacts.map(contact => (
+  const mappedContacts = contacts.map(contact => (
     <ContactItem
       key={contact.id}
       selectContact={selectContact}
@@ -38,7 +38,7 @@ const ContactList: React.FC<ContactListProps> = ({ contacts }) => {
     />
   ));
 
-  return <ul className={styles.contactList}>{mappedContact}</ul>;
+  return <ul className={styles.contactList}>{mappedContacts}</ul>;
 };
 
 export default ContactList;

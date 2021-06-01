@@ -23,12 +23,6 @@ const ContactItem: React.FC<Contact> = ({
     <span>{first_name.charAt(0).toUpperCase() + last_name.charAt(0).toUpperCase()}</span>
   );
 
-  const checkCircleElement = isContactChecked ? (
-    <FontAwesomeIcon icon={faCheckCircle} />
-  ) : (
-    <FontAwesomeIcon icon={faCircle} />
-  );
-
   function handleContactItemClick(id: number) {
     if (selectContact && unselectContact) {
       isContactChecked ? unselectContact(id) : selectContact(id);
@@ -45,7 +39,9 @@ const ContactItem: React.FC<Contact> = ({
         </p>
         <p className={styles.email}>{email}</p>
       </div>
-      <div className={styles.checkCircle}>{checkCircleElement}</div>
+      <div className={styles.checkCircle}>
+        {<FontAwesomeIcon icon={isContactChecked ? faCheckCircle : faCircle} />}
+      </div>
     </li>
   );
 };

@@ -41,22 +41,22 @@ const App: React.FC = () => {
     return comparison;
   }
 
-  function filterContactByFirstOrLastName(term: string) {
-    const contactItems = document.querySelectorAll('li')! as NodeListOf<HTMLLIElement>;
-    contactItems.forEach(contact => {
-      const nameElement = contact.querySelector('p')! as HTMLParagraphElement;
+  function filterContactsByFirstOrLastName(term: string) {
+    const contactListItems = document.querySelectorAll('li')! as NodeListOf<HTMLLIElement>;
+    contactListItems.forEach(item => {
+      const nameElement = item.querySelector('p')! as HTMLParagraphElement;
       const name = nameElement.textContent!.toLowerCase();
-      if (name.includes(term)) {
-        contact.style.display = 'flex';
+      if (name.includes(term.toLowerCase())) {
+        item.style.display = 'flex';
       } else {
-        contact.style.display = 'none';
+        item.style.display = 'none';
       }
     });
   }
 
   return (
     <>
-      <Header filterContacts={filterContactByFirstOrLastName} />
+      <Header filterContacts={filterContactsByFirstOrLastName} />
       {shouldShowSpinner && <Spinner />}
       <ContactList contacts={contacts} />
     </>
