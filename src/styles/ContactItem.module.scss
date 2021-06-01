@@ -1,8 +1,48 @@
 .contactItem {
+  display: flex;
+  align-items: center;
   padding: 1rem;
   border-bottom: 1px solid #cdcdcd;
+  cursor: pointer;
 
   &:first-child {
-    border-top: 1px solid #cdcdcd;
+    border-top: 2px solid #cdcdcd;
   }
+}
+
+.avatarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 52px;
+  height: 52px;
+  border: 1px solid #cdcdcd;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #999;
+  font-size: 1.8rem;
+
+  & img {
+    max-width: 100%;
+  }
+}
+
+.contactInfo {
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.name {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.email {
+  font-size: 1.2rem;
+}
+
+.checkCircle {
+  color: var(--custom-blue);
+  font-size: 2rem;
 }
