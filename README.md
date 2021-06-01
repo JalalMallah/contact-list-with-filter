@@ -1,5 +1,7 @@
 # TeaCode Recruitment Task
 
+[Live Preview 🚀](https://teacode-contact-list.netlify.app/)
+
 ## Tech Stack:
 
 - React
