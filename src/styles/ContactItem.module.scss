@@ -1,0 +1,8 @@
+.contactItem {
+  padding: 1rem;
+  border-bottom: 1px solid #cdcdcd;
+
+  &:first-child {
+    border-top: 1px solid #cdcdcd;
+  }
+}
