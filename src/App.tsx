@@ -34,9 +34,22 @@ const App: React.FC = () => {
     return comparison;
   }
 
+  function filterContactByFirstOrLastName(term: string) {
+    const contactItems = document.querySelectorAll('li')! as NodeListOf<HTMLLIElement>;
+    contactItems.forEach(contact => {
+      const nameElement = contact.querySelector('p')! as HTMLParagraphElement;
+      const name = nameElement.textContent!.toLowerCase();
+      if (name.includes(term)) {
+        contact.style.display = 'flex';
+      } else {
+        contact.style.display = 'none';
+      }
+    });
+  }
+
   return (
     <>
-      <Header />
+      <Header filterContacts={filterContactByFirstOrLastName} />
       <ContactList contacts={contacts} />
     </>
   );
