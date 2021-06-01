@@ -6,7 +6,15 @@ import styles from 'styles/ContactItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 
-const ContactItem: React.FC<Contact> = ({ avatar, email, first_name, id, last_name }) => {
+const ContactItem: React.FC<Contact> = ({
+  avatar,
+  email,
+  first_name,
+  id,
+  last_name,
+  selectContact,
+  unselectContact,
+}) => {
   const [isContactChecked, setIsContactChecked] = useState<boolean>(false);
 
   const avatarElement = avatar ? (
@@ -21,12 +29,15 @@ const ContactItem: React.FC<Contact> = ({ avatar, email, first_name, id, last_na
     <FontAwesomeIcon icon={faCircle} />
   );
 
-  function handleContactItemClick() {
+  function handleContactItemClick(id: number) {
+    if (selectContact && unselectContact) {
+      isContactChecked ? unselectContact(id) : selectContact(id);
+    }
     setIsContactChecked(prev => !prev);
   }
 
   return (
-    <li className={styles.contactItem} onClick={handleContactItemClick}>
+    <li className={styles.contactItem} onClick={() => handleContactItemClick(id)}>
       <div className={styles.avatarContainer}>{avatarElement}</div>
       <div className={styles.contactInfo}>
         <p className={styles.name}>
