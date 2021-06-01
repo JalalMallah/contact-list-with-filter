@@ -1,7 +1,9 @@
+import Header from 'components/Header';
+
 const App: React.FC = () => {
   return (
     <>
-      <h1>Hello, TeaCode!</h1>
+      <Header />
     </>
   );
 };
