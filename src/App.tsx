@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Header from 'components/Header';
 import ContactList from 'components/ContactList';
+import Spinner from 'components/Spinner';
 
 import { Contact } from 'interfaces/ContactInterface';
 
@@ -9,6 +10,7 @@ const URL = 'https://teacode-recruitment-challenge.s3.eu-central-1.amazonaws.com
 
 const App: React.FC = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
+  const [shouldShowSpinner, setShouldShowSpinner] = useState<boolean>(true);
 
   useEffect(() => {
     getContacts();
@@ -17,7 +19,11 @@ const App: React.FC = () => {
   function getContacts() {
     fetch(URL)
       .then(res => res.json())
-      .then(data => setContacts(data.sort(compare)))
+      .then(data => {
+        setContacts(data.sort(compare));
+        setShouldShowSpinner(false);
+        return;
+      })
       .catch(error => console.error('Error: ', error));
   }
 
@@ -50,6 +56,7 @@ const App: React.FC = () => {
   return (
     <>
       <Header filterContacts={filterContactByFirstOrLastName} />
+      {shouldShowSpinner && <Spinner />}
       <ContactList contacts={contacts} />
     </>
   );
