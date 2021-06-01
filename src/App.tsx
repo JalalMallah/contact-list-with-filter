@@ -14,6 +14,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     getContacts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function getContacts() {
