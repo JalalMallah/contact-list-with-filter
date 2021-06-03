@@ -8,8 +8,14 @@
   }
 
   form {
-    display: flex;
+    padding: 0.5rem 0;
     background-color: #fff;
+
+    .formControl {
+      display: flex;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
     label {
       padding: 0.5rem 1rem;

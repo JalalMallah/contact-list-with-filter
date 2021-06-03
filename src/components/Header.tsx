@@ -21,16 +21,18 @@ const Header: React.FC<HeaderProps> = ({ filterContacts }) => {
     <header className={styles.header}>
       <h1>Contacts</h1>
       <form>
-        <label htmlFor='user-search'>
-          <FontAwesomeIcon icon={faSearch} />
-        </label>
-        <input
-          type='text'
-          id='user-search'
-          placeholder='Search term...'
-          value={searchTerm}
-          onChange={handleInputChange}
-        />
+        <div className={styles.formControl}>
+          <label htmlFor='user-search'>
+            <FontAwesomeIcon icon={faSearch} />
+          </label>
+          <input
+            type='text'
+            id='user-search'
+            placeholder='Search contacts...'
+            value={searchTerm}
+            onChange={handleInputChange}
+          />
+        </div>
       </form>
     </header>
   );

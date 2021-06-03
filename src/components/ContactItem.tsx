@@ -1,29 +1,28 @@
 import React, { useState } from 'react';
 
-import { Contact } from 'interfaces/ContactInterface';
+import { Contact } from 'utils/ContactType';
 import styles from 'styles/ContactItem.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 
 const ContactItem: React.FC<Contact> = ({
-  avatar,
+  picture,
   email,
-  first_name,
-  id,
-  last_name,
+  name: { first, last },
+  login: { uuid: id },
   selectContact,
   unselectContact,
 }) => {
   const [isContactChecked, setIsContactChecked] = useState<boolean>(false);
 
-  const avatarElement = avatar ? (
-    <img src={avatar} alt="contact's avatar" />
+  const avatarElement = picture.large ? (
+    <img src={picture.large} alt="contact's avatar" />
   ) : (
-    <span>{first_name.charAt(0).toUpperCase() + last_name.charAt(0).toUpperCase()}</span>
+    <span>{first.charAt(0).toUpperCase() + last.charAt(0).toUpperCase()}</span>
   );
 
-  function handleContactItemClick(id: number) {
+  function handleContactItemClick(id: string) {
     if (selectContact && unselectContact) {
       isContactChecked ? unselectContact(id) : selectContact(id);
     }
@@ -35,7 +34,7 @@ const ContactItem: React.FC<Contact> = ({
       <div className={styles.avatarContainer}>{avatarElement}</div>
       <div className={styles.contactInfo}>
         <p className={styles.name}>
-          {first_name} {last_name}
+          {first} {last}
         </p>
         <p className={styles.email}>{email}</p>
       </div>

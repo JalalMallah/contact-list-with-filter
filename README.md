@@ -1,12 +1,15 @@
-# TeaCode Recruitment Task
+# Contact List with Filter
 
-[Live Preview 🚀](https://teacode-contact-list.netlify.app/)
+[Live Preview 🚀](https://contact-list-with-filter.netlify.app/)
+
+> A contact list app made with React and TypeScript. The contacts are fetched from the Random User Generator API. The contacts get sorted by last name and rendered into the DOM. Clicking on an item changes its state to checked and also logs to the console an array of all selected contact items. The contact list also has a filtering option by typing the searched term in the search field. Matching contacts will be shown without changing their state of being checked or unchecked.
 
 ## Tech Stack:
 
 - React
 - TypeScript
 - CSS Modules
+- Random User Generator API
 - Font Awesome Icons
 
 ## Available Scripts

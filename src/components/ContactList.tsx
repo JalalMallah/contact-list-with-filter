@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import ContactItem from 'components/ContactItem';
 
-import { Contact } from 'interfaces/ContactInterface';
+import { Contact } from 'utils/ContactType';
 import styles from 'styles/ContactList.module.scss';
 
 interface ContactListProps {
@@ -11,9 +11,9 @@ interface ContactListProps {
 
 const ContactList: React.FC<ContactListProps> = ({ contacts }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [selectedIDs, setSelectedIDs] = useState<number[]>([]);
+  const [selectedIDs, setSelectedIDs] = useState<string[]>([]);
 
-  const selectContact = (id: number) => {
+  const selectContact = (id: string) => {
     setSelectedIDs(prev => {
       const updatedIDs = [...prev, id];
       console.log('Selected IDs: ', updatedIDs);
@@ -21,7 +21,7 @@ const ContactList: React.FC<ContactListProps> = ({ contacts }) => {
     });
   };
 
-  const unselectContact = (id: number) => {
+  const unselectContact = (id: string) => {
     setSelectedIDs(prev => {
       const updatedIDs = prev.filter(item => item !== id);
       console.log('Selected IDs: ', updatedIDs);
@@ -31,7 +31,7 @@ const ContactList: React.FC<ContactListProps> = ({ contacts }) => {
 
   const mappedContacts = contacts.map(contact => (
     <ContactItem
-      key={contact.id}
+      key={contact.login.uuid}
       selectContact={selectContact}
       unselectContact={unselectContact}
       {...contact}

@@ -4,9 +4,9 @@ import Header from 'components/Header';
 import ContactList from 'components/ContactList';
 import Spinner from 'components/Spinner';
 
-import { Contact } from 'interfaces/ContactInterface';
+import { Contact } from 'utils/ContactType';
 
-const URL = 'https://teacode-recruitment-challenge.s3.eu-central-1.amazonaws.com/users.json';
+const URL = 'https://randomuser.me/api/?results=100';
 
 const App: React.FC = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
@@ -21,7 +21,7 @@ const App: React.FC = () => {
     fetch(URL)
       .then(res => res.json())
       .then(data => {
-        setContacts(data.sort(compare));
+        setContacts(data.results.sort(compare));
         setShouldShowSpinner(false);
         return;
       })
@@ -29,16 +29,14 @@ const App: React.FC = () => {
   }
 
   function compare(a: Contact, b: Contact) {
-    const contactA = a.last_name.toUpperCase();
-    const contactB = b.last_name.toUpperCase();
+    const contactA = a.name.last.toUpperCase();
+    const contactB = b.name.last.toUpperCase();
 
-    let comparison = 0;
     if (contactA > contactB) {
-      comparison = 1;
+      return 1;
     } else if (contactA < contactB) {
-      comparison = -1;
+      return -1;
     }
-    return comparison;
   }
 
   function filterContactsByFirstOrLastName(term: string) {
