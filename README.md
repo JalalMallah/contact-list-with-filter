@@ -2,7 +2,7 @@
 
 [Live Preview 🚀](https://contact-list-with-filter.netlify.app/)
 
-> A contact list app made with React and TypeScript. The contacts are fetched from the Random User Generator API. The contacts get sorted by last name and rendered into the DOM. Clicking on an item changes its state to checked and also logs to the console an array of all selected contact items. The contact list also has a filtering option by typing the searched term in the search field. Matching contacts will be shown without changing their state of being checked or unchecked.
+> A contact list app made with React and TypeScript. The contacts are fetched from the Random User Generator API. The contacts get sorted by last name and rendered into the DOM. Clicking on an item changes its state to checked and also logs to the console an array of all selected contact items. The contact list also has a filtering option by typing the searched term in the search field. Matching contacts will be shown without changing their state of being checked or unchecked. On page load a spinner animation appears while contacts are fetched.
 
 ## Tech Stack:
 
@@ -34,3 +34,15 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+---
+
+### Mobile View Illustration
+
+<img src="./screenshots/mobile.png" alt="Mobile View Illustration" width="300"/>
+
+---
+
+### Desktop View Illustration
+
+<img src="./screenshots/desktop.png" alt="Desktop View Illustration"/>
