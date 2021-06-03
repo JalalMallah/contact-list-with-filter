@@ -11,6 +11,7 @@
 - CSS Modules
 - Random User Generator API
 - Font Awesome Icons
+- Netlify for Hosting
 
 ## Available Scripts
 
